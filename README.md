@@ -114,7 +114,11 @@ For live monitoring:
 ```bash
 pm2 logs whistle
 ```
+### Successful Node Running Example
 
+![Whistle Node Logs](https://github.com/Ucill924/Whistle_Ninja-Node/blob/main/image_2025-12-23_15-04-15.png)
+
+*Example of successfully running node with active requests*
 ### Management Commands
 
 | Command | Description |
@@ -132,51 +136,23 @@ pm2 logs whistle
 - More requests processed = more rewards
 - Monitor logs regularly to ensure node is running properly
 
-### Common Issues
 
-**Node won't start / Missing ws module**:
-```bash
-npm install -g ws
-pm2 restart whistle
-```
 
 **Check error logs**:
 ```bash
 pm2 logs whistle --err
 ```
 
-**Update node script**:
-```bash
-cd ~/whistle
-pm2 stop whistle
-curl -sL earn.whistle.ninja/node.js -o node.js
-pm2 restart whistle
-```
 
-**Check firewall** (if needed):
-```bash
-sudo ufw status
-sudo ufw allow 22/tcp
-```
 
-## 🔐 Security Best Practices
 
-1. **Never share your wallet private key**
-2. Use SSH key authentication
-3. Update system regularly
-4. Backup wallet address and configuration
-5. Monitor server activity routinely
+
+
+
 
 ## 📈 Monitoring Rewards
 
 Check your rewards and node status on the dashboard:
 [https://earn.whistle.ninja/](https://earn.whistle.ninja/)
 
-## ❓ Support
 
-- Website: [https://whistle.ninja/](https://whistle.ninja/)
-- Dashboard: [https://earn.whistle.ninja/](https://earn.whistle.ninja/)
-
----
-
-**Disclaimer**: Make sure you understand crypto investment risks. Do your own research (DYOR) before staking tokens.
