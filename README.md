@@ -7,6 +7,7 @@ Complete guide to running a Whistle Node and earning rewards.
 ### Minimum Requirements
 - **CPU**: 4 Core
 - **RAM**: 8 GB
+- **Storage**: 20 GB SSD
 - **OS**: Ubuntu 24.04 / Debian 12
 - **Location**: Europe or US (recommended)
 
@@ -19,10 +20,8 @@ Complete guide to running a Whistle Node and earning rewards.
 
 ## 💰 Required Assets
 
-| Asset | Amount | Estimated Cost |
-|-------|--------|----------------|
-| Solana ($SOL) | 1 SOL | ~$1 |
-| $WHISTLE Token | 1000 WHISTLE | ~$1 |
+| Asset | Amount | Estimated Cost ||
+| $WHISTLE Token | 100 WHISTLE | ~$1 |
 
 **Token Address**: `6Hb2xgEhyN9iVVH3cgSxYjfN774ExzgiCftwiWdjpump`
 
@@ -34,7 +33,7 @@ Complete guide to running a Whistle Node and earning rewards.
 
 1. Visit [https://earn.whistle.ninja/](https://earn.whistle.ninja/)
 2. Connect your Solana wallet
-3. 100 $WHISTLE Minimum to register your node
+3. Stake 100 WHISTLE to register your node
 4. Save your wallet address for node setup
 
 ### Step 2: VPS Setup
@@ -61,6 +60,11 @@ npm --version
 sudo npm install -g pm2
 ```
 
+#### 2.4 Install WebSocket Library
+```bash
+npm install -g ws
+```
+
 ### Step 3: Setup Whistle Node
 
 #### 3.1 Create Whistle Folder
@@ -78,12 +82,12 @@ curl -sL earn.whistle.ninja/node.js -o node.js
 
 Replace `your_wallet_address` with your Solana wallet address:
 ```bash
-WALLET="your_wallet_address" pm2 start node.js --name whistle
+WALLET=<your_wallet_address> pm2 start node.js --name whistle
 ```
 
 **Example**:
 ```bash
-WALLET="7XaB3Cd4Ef5Gh6Ij7Kl8Mn9Op0Qr1St2Uv3Wx4Yz5" pm2 start node.js --name whistle
+WALLET=7XaB3Cd4Ef5Gh6Ij7Kl8Mn9Op0Qr1St2Uv3Wx4Yz5 pm2 start node.js --name whistle
 ```
 
 #### 3.4 Save & Enable Auto-Start
@@ -130,7 +134,13 @@ pm2 logs whistle
 
 ### Common Issues
 
-**Node won't start**:
+**Node won't start / Missing ws module**:
+```bash
+npm install -g ws
+pm2 restart whistle
+```
+
+**Check error logs**:
 ```bash
 pm2 logs whistle --err
 ```
@@ -143,8 +153,19 @@ curl -sL earn.whistle.ninja/node.js -o node.js
 pm2 restart whistle
 ```
 
+**Check firewall** (if needed):
+```bash
+sudo ufw status
+sudo ufw allow 22/tcp
+```
 
+## 🔐 Security Best Practices
 
+1. **Never share your wallet private key**
+2. Use SSH key authentication
+3. Update system regularly
+4. Backup wallet address and configuration
+5. Monitor server activity routinely
 
 ## 📈 Monitoring Rewards
 
