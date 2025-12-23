@@ -34,7 +34,7 @@ Complete guide to running a Whistle Node and earning rewards.
 
 1. Visit [https://earn.whistle.ninja/](https://earn.whistle.ninja/)
 2. Connect your Solana wallet
-3. Stake 1 SOL + 1000 WHISTLE to register your node
+3. 100 $WHISTLE Minimum to register your node
 4. Save your wallet address for node setup
 
 ### Step 2: VPS Setup
